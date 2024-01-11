@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OpenDay Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="!group || !grpAct[group]" class="text-center mt-2">No valid group selected</h1>
+        <div v-else class="container">
+            <h1 class="text-danger text-center mt-2">Open Day Schedule</h1>
+            <div v-for="act in grpAct[group]" class="card m-2 p-2">
+                <p class="m-0">{{act.from}} - {{act.to}}</p>
+                <p class="m-0">{{act.name}}</p>
+                <ul v-if="act.list">
+                    <li v-for="item in act.list">
+                        {{item}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <script src="./vue.js"></script>
+        <script src="./app.js" type="module"></script>
+</body>
+
+</html>
