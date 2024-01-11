@@ -17,10 +17,11 @@
     <div id="app">
         <h1 v-if="!group || !grpAct[group]" class="text-center mt-2">No valid group selected</h1>
         <div v-else class="container">
-            <h1 class="text-danger text-center mt-2">Open Day Schedule</h1>
+            <!-- <h1 class="text-danger text-center mt-2">Open Day Schedule</h1> -->
+            <img src="./imgs/openday.jpg" alt="openday-image" loading="lazy" class="w-100">
             <div v-for="(act,index) in grpAct[group]" class="card m-2 p-2" :class="getClass(index)">
                 <p class="m-0">{{act.from}} - {{act.to}}</p>
-                <p class="m-0"><strong>{{act.name}}</strong></p>
+                <p class="m-0"><strong>{{act.name}}</strong><span v-if="act.venue">-{{act.venue}}</span></p>
                 <ul v-if="act.list">
                     <li v-for="item in act.list">
                         {{item}}
