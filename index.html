@@ -18,9 +18,9 @@
         <h1 v-if="!group || !grpAct[group]" class="text-center mt-2">No valid group selected</h1>
         <div v-else class="container">
             <h1 class="text-danger text-center mt-2">Open Day Schedule</h1>
-            <div v-for="act in grpAct[group]" class="card m-2 p-2">
+            <div v-for="(act,index) in grpAct[group]" class="card m-2 p-2" :class="getClass(index)">
                 <p class="m-0">{{act.from}} - {{act.to}}</p>
-                <p class="m-0">{{act.name}}</p>
+                <p class="m-0"><strong>{{act.name}}</strong></p>
                 <ul v-if="act.list">
                     <li v-for="item in act.list">
                         {{item}}
